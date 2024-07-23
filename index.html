@@ -2,12 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <link rel="stylesheet" href="src/styles.css" />
+    <title>Weather App</title>
   </head>
   <body>
-    <h1>Weather app</h1>
+    <div class="whole-app">
+      <header>
+        <form class="search-form" id="search-form">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            required
+            class="search-input"
+            id="search-input"
+          />
+          <input type="submit" class="search-button" />
+        </form>
+      </header>
+      <main>
+        <div class="weather-info">
+          <div>
+            <h1 class="city" id="current-city"></h1>
+            <p class="weather-details">
+              <span id="date-time"></span>,
+              <span id="temp-description"></span>
+              <br />
+              Humidity: <strong id="humidity-level"></strong>, Wind:
+              <strong id="wind-speed"></strong>
+            </p>
+          </div>
+          <div class="weather-temp-container">
+            <div class="weather-icon" id="temp-icon"></div>
+            <div class="weather-temp" id="temperature"></div>
+            <div class="weather-unit" id="temp-unit">°C</div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        Coded by
+        <a href="https://github.com/JTshonda" target="_blank" class="links">
+          Jubilee Tshonda</a
+        >, open-sourced on
+        <a
+          href="https://github.com/JTshonda/Plus-New-Weather-App"
+          target="_blank"
+          class="all-links"
+          >GitHub</a
+        >
+        and website hosted
+        <a
+          href="https://plus-weather-app.netlify.app/"
+          target="_blank"
+          class="all-links"
+          >on Netlify</a
+        >
+      </footer>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
