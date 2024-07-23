@@ -48,6 +48,26 @@ function getCityInput(event) {
   searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let days = ["Wed", "Thur", "Fri", "Sat", "Sun"];
+  let forecastHTML = "";
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="forecast-day">
+            <div class="forecast-date">${day}</div>
+            <div class="forecast-icon">⛈️</div>
+            <div class="forecast-temps">
+              <div class="forecast-temp"><strong>15°</strong></div>
+              <div class="forecast-temp">12°</div>
+            </div>
+          </div>`;
+  });
+  let forecast = document.querySelector("#weather-forecast");
+  forecast.innerHTML = forecastHTML;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", getCityInput);
 searchCity("Kinshasa");
+displayForecast();
