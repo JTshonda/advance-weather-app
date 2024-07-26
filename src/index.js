@@ -26,7 +26,7 @@ function formatDate(date) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday",
+    "Saturday"
   ];
   let day = days[date.getDay()];
 
@@ -38,7 +38,7 @@ function formatDate(date) {
 }
 function searchCity(city) {
   let apiKey = "1d99d901f34da597o23a408fbateb9dc";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(newCityWeather);
 }
 function getCityInput(event) {
@@ -47,9 +47,15 @@ function getCityInput(event) {
 
   searchCity(searchInput.value);
 }
+function getForecast(city) {
+  let apiKey = "1d99d901f34da597o23a408fbateb9dc";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
-function displayForecast() {
-  let days = ["Wed", "Thur", "Fri", "Sat", "Sun"];
+function displayForecast(response) {
+  console.log(response.data);
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
   let forecastHTML = "";
   days.forEach(function (day) {
     forecastHTML =
@@ -70,4 +76,4 @@ function displayForecast() {
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", getCityInput);
 searchCity("Kinshasa");
-displayForecast();
+displayForecast("kinshasa");
